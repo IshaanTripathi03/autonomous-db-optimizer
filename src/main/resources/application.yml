@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: db-optimizer
+
+app:
+  datasource:
+    target:
+      jdbc-url: jdbc:postgresql://localhost:5532/target_db
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+    knowledge:
+      jdbc-url: jdbc:postgresql://localhost:5533/knowledge_db
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
