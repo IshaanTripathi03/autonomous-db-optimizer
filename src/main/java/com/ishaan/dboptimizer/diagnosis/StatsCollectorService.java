@@ -18,7 +18,12 @@ public class StatsCollectorService {
         String sql = """
                 SELECT queryid, query, calls, mean_exec_time, total_exec_time, rows
                 FROM pg_stat_statements
-                WHERE query NOT ILIKE '%pg_stat_statements%'
+                WHERE query ILIKE 'SELECT%'
+                  AND query NOT ILIKE '%pg_stat_statements%'
+                  AND query NOT ILIKE '%pg_catalog%'
+                  AND query NOT ILIKE '%pg_indexes%'
+                  AND query NOT ILIKE '%pg_class%'
+                  AND query NOT ILIKE '%information_schema%'
                 ORDER BY mean_exec_time DESC
                 LIMIT :limit
                 """;

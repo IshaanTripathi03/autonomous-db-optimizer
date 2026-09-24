@@ -5,6 +5,9 @@ spring:
     google:
       genai:
         api-key: ${GEMINI_API_KEY}
+        chat:
+          options:
+            model: gemini-3.6-flash
         embedding:
           api-key: ${GEMINI_API_KEY}
     vectorstore:
