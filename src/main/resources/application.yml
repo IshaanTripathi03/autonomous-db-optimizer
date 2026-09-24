@@ -1,6 +1,16 @@
 spring:
   application:
     name: db-optimizer
+  ai:
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY}
+        embedding:
+          api-key: ${GEMINI_API_KEY}
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        index-type: NONE
 
 app:
   datasource:
