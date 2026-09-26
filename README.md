@@ -10,6 +10,10 @@ Developers building AI apps on Postgres + pgvector hit slow vector/filtered sear
 
 On a 400,000-row test table, the system's own verification step measured a **99.97% reduction in query execution time** (85.487ms to 0.027ms) after applying its recommended composite index — a ~3,166x speedup. This number was captured automatically by the system's before/after `EXPLAIN ANALYZE` comparison, not benchmarked by hand.
 
+![Dashboard showing a live-approved recommendation](https://raw.githubusercontent.com/IshaanTripathi03/autonomous-db-optimizer-frontend/main/docs/dashboard-demo.png)
+
+*Live reproduction via the [dashboard](https://github.com/IshaanTripathi03/autonomous-db-optimizer-frontend): after dropping the existing index to recreate the problem, the system independently rediscovered it and measured 43.6ms → 0.037ms (99.92% faster) after approval — confirming the result above is reproducible, not a one-off.*
+
 ## Architecture
 
 Three physically separated concerns (see `/docs/ADR-001` for full reasoning):
